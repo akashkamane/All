@@ -1,0 +1,35 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+	<servlet>
+		<servlet-name>AddItemServlet</servlet-name>
+		<display-name>AddItemServlet</display-name>
+		<description></description>
+		<servlet-class>com.shweta.controller.AddItemServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>DecisionServlet</servlet-name>
+		<display-name>DecisionServlet</display-name>
+		<description></description>
+		<servlet-class>com.shweta.controller.DecisionServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AddItemServlet</servlet-name>
+		<url-pattern>/AddItemServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>DecisionServlet</servlet-name>
+		<url-pattern>/DecisionServlet</url-pattern>
+	</servlet-mapping>
+  
+  <!-- <servlet>
+  	<servlet-name>FetchItemServlet</servlet-name>
+  	<servlet-class>com.shweta.controller.FetchItemServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>FetchItemServlet</servlet-name>
+  	<url-pattern>/FetchItemServlet</url-pattern>
+  </servlet-mapping> -->
+</web-app>
