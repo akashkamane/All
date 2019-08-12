@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+ <beans xmlns="http://www.springframeworks.org/schema/beans"
+ 		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ 		xmlns:aop="http://www.springframeworks.org/schema/aop"
+ 		xmlns:tx="http://www.springframeworks.org/schema/tx"
+ 		xmlns:p="http://www.springframeworks.org/schema/p"
+ 		xmlns:c="http://www.springframeworks.org/schema/c"
+ 	
+ 		xsi:schemaLocation="
+ 				http://www.springframeworks.org/schema/beans
+ 				http://www.springframeworks.org/schema/beans/spring-beans-4.0.xsd
+ 				http://www.springframeworks.org/schema/aop
+ 				http://www.springframeworks.org/schema/aop/spring-aop-4.0.xsd
+ 				http://www.springframeworks.org/schema/tx
+ 				http://www.springframeworks.org/schema/tx/spring-tx-4.0.xsd">
+ 				
+ 				<bean id="coreJavaCourse" class="com.spring.di.CoreJavaCourse">
+ 				<constructor-arg value="80"/>
+ 				<constructor-arg>
+ 				<list>
+ 				<value>OOPS</value>
+ 				<value>Threads</value>
+ 				<value>IO</value>
+ 				<value>CollectionS</value>
+ 				</list></constructor-arg>
+ 				<constructor-arg value="1000"/> 
+ 				</bean>
+ 				
+	 				
+ 				
+ 				<!-- <bean id="coreJavaCourse" class="com.spring.di.CoreJavaCourse">
+ 				<constructor-arg type="int" value="80"/>
+ 				<constructor-arg>
+ 				<list>
+ 				<value>OOPS</value>
+ 				<value>Threads</value>
+ 				<value>IO</value>
+ 				<value>CollectionS</value>
+ 				</list></constructor-arg>
+ 				<constructor-arg  type="double" value="1000"/>
+ 				
+ 				</bean> -->
+ 				
+ 				 <!-- <bean id="coreJavaCourse" class="com.spring.di.CoreJavaCourse">
+ 				<constructor-arg type="1" value="80"/>
+ 				<constructor-arg>
+ 				<list>
+ 				<value>OOPS</value>
+ 				<value>Threads</value>
+ 				<value>IO</value>
+ 				<value>CollectionS</value>
+ 				</list></constructor-arg>
+ 				<constructor-arg  index="2" value="1000"/>
+ 				</bean> -->
+ 				 
+ 				 <bean id="advancedJavaCourse" class="com.spring.di.AdvancedJavaCourse">
+ 				<constructor-arg value="80"/>
+ 				<constructor-arg>
+ 				<list>
+ 				<value>RMI</value>
+ 				<value>Servlets</value>
+ 				<value>JDBC</value>
+ 				<value>JSP</value>
+ 				</list></constructor-arg>
+ 				<constructor-arg value="1000"/> 
+ 				</bean>
+ 				<bean id="Akash" class="com.spring.di.AndroidTrainer" p:name="Ajay Bhosekar">
+ 				<property name="Specialties">
+ 				<set>
+ 				<value>android</value>
+ 				</set> 
+ 				</property>
+ 				</bean>
+ 				
+ 				<bean id="mikado" class="com.spring.di.MikadoSolutions"
+ 				factory-method="getMikadoSolution">
+ 				<property name="triners">
+ 				<list>
+ 				<ref bean="Akash"/>
+ 				<ref bean="Deven"/>
+ 				</list> 
+ 				</property>
+ 				
+ 				<property name="courses">
+ 				<list>
+ 				<ref bean="coreJavaCourse"/>
+ 				<ref bean="advancedJavaCourse"/>
+ 				</list> 
+ 				</property>
+ 				
+ 				</bean>
+ 				
+ 				<bean id="trainingWorkshop" class="com.spring.di.TrainingWorkshop"
+ 					p:trainingCompany-ref="mikado"/>
+ 				
+ 				
+ 				
+ 				
+ 				</beans>

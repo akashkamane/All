@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+ 		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ 		xmlns:aop="http://www.springframework.org/schema/aop"
+ 		xmlns:tx="http://www.springframework.org/schema/tx"
+ 		xmlns:p="http://www.springframework.org/schema/p"
+ 		xmlns:c="http://www.springframework.org/schema/c"
+ 	
+ 		xsi:schemaLocation="
+ 				http://www.springframework.org/schema/beans
+ 				http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+ 				http://www.springframework.org/schema/aop
+ 				http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+ 				http://www.springframework.org/schema/tx
+ 				http://www.springframework.org/schema/tx/spring-tx-3.0.xsd" 
+ 				default-autowire-candidates="#do">
+ 				
+ 				
+ 				<bean id="coreJavaCourse" class="com.spring.di.CoreJavaCourse">
+ 				<constructor-arg value="80"/>
+ 				<constructor-arg>
+ 				<list>
+ 				<value>OOPS</value>
+ 				<value>Threads</value>
+ 				<value>IO</value>
+ 				<value>CollectionS</value>
+ 				</list></constructor-arg>
+ 				<constructor-arg value="1000"/> 
+ 				</bean>
+ 				
+	 				
+ 				
+ 				<!-- <bean id="coreJavaCourse" class="com.spring.di.CoreJavaCourse">
+ 				<constructor-arg type="int" value="80"/>
+ 				<constructor-arg>
+ 				<list>
+ 				<value>OOPS</value>
+ 				<value>Threads</value>
+ 				<value>IO</value>
+ 				<value>CollectionS</value>
+ 				</list></constructor-arg>
+ 				<constructor-arg  type="double" value="1000"/>
+ 				
+ 				</bean> -->
+ 				
+ 				 <!-- <bean id="coreJavaCourse" class="com.spring.di.CoreJavaCourse">
+ 				<constructor-arg type="1" value="80"/>
+ 				<constructor-arg>
+ 				<list>
+ 				<value>OOPS</value>
+ 				<value>Threads</value>
+ 				<value>IO</value>
+ 				<value>CollectionS</value>
+ 				</list></constructor-arg>
+ 				<constructor-arg  index="2" value="1000"/>
+ 				</bean> -->
+ 				 
+ 				 <!-- <bean id="advancedJavaCourse" class="com.spring.di.AdvancedJavaCourse">
+ 				<constructor-arg value="80"/>
+ 				<constructor-arg>
+ 				<list>
+ 				<value>RMI</value>
+ 				<value>Servlets</value>
+ 				<value>JDBC</value>
+ 				<value>JSP</value>
+ 				</list></constructor-arg>
+ 				<constructor-arg value="1000"/> 
+ 				</bean> -->
+ 				
+ 				<!--  <bean id="advancedJavaCourse" class="com.spring.di.AdvancedJavaCourse"
+ 				c:courseFees="80" c:courseDuration="1000"/>
+ 				<constructor-arg>
+ 				<list>
+ 				<value>RI</value>
+ 				<value>Serlets</value>
+ 				<value>JBC</value>
+ 				<value>JS</value>
+ 				</list>
+ 				</constructor-arg>
+ 				
+ 				</bean> -->
+ 				
+ 				
+ 				<!--  <bean id="advancedJavaCourse" class="com.spring.di.AdvancedJavaCourse"
+ 				c:_2="80" c:_1="1000"/>
+ 				<constructor-arg>
+ 				<list>
+ 				<value>RI</value>
+ 				<value>Serlets</value>
+ 				<value>JBC</value>
+ 				<value>JS</value>
+ 				</list>
+ 				</constructor-arg>
+ 				
+ 				</bean> -->
+ 				
+ 				<bean id="advancedJavaCourse" class="com.spring.di.AdvancedJavaCourse">
+ 				<property name="courseDuration" value="80"/>
+ 				<property name="courseContents">
+ 				<list>
+ 				<value>RMI</value>
+ 				<value>Servlets</value>
+ 				<value>JDBC</value>
+ 				<value>JSP</value>
+ 				</list></property>
+ 				<property name="courseFees" value="10500"/> 
+ 				</bean>
+ 				
+ 				 <!-- 
+ 				 <bean id="advancedJavaCourse" class="com.spring.di.AdvancedJavaCourse" p:courseDuration="80" p:courseFees="10500"/>
+ 				<property name="courseContents">
+ 				<list>
+ 				<value>RMI</value>
+ 				<value>Servlets</value>
+ 				<value>JDBC</value>
+ 				<value>JSP</value>
+ 				</list></property>
+ 				
+ 				</bean> -->
+ 				
+ 				
+ 				
+ 				<bean id="Akash" class="com.spring.di.AndroidTrainer" p:name="Akash Kamane">
+ 				<property name="Specialties">
+ 				<set>
+ 				<value>android</value>
+ 				</set> 
+ 				</property>
+ 				</bean>
+ 				
+ 				<bean id="Deven" class="com.spring.di.JavaTrainer" p:name="Deven Kenny">
+ 				<property name="Specialties">
+ 				<set>
+ 				<value>android</value>
+ 				</set> 
+ 				</property>
+ 				</bean>
+ 				
+ 				
+ 				<bean id="mikado"  class="com.spring.di.MikadoSolutions">
+ 				<!-- <property name="trainers">
+ 				<list>
+ 				<ref bean="Akash"/>
+ 				<ref bean="Deven"/>
+ 				</list> 
+ 				</property>
+ 				
+ 				<property name="courses">
+ 				<set>
+ 				<ref bean="coreJavaCourse"/>
+ 				<ref bean="advancedJavaCourse"/>
+ 				</set> 
+ 				</property>
+ 				
+ 				<property name="courseTrainers">
+ 				<map>
+ 				<entry key-ref = "coreJavaCourse" value-ref="Deven"/>
+ 				<entry key-ref = "advancedJavaCourse" value-ref="Akash"/>
+ 				</map> 
+ 				</property> -->
+ 				
+ 				</bean>
+ 				
+ 				<!-- <bean id="mikadoo1"  primary="true" class="com.spring.di.MikadoSolutions"
+ 				factory-method="getMikadoSolutions">
+ 				<property name="trainers">
+ 				<list>
+ 				<ref bean="Akash"/>
+ 				<ref bean="Deven"/>
+ 				</list> 
+ 				</property>
+ 				
+ 				<property name="courses">
+ 				<set>
+ 				<ref bean="coreJavaCourse"/>
+ 				<ref bean="advancedJavaCourse"/>
+ 				</set> 
+ 				</property>
+ 				
+ 				<property name="courseTrainers">
+ 				<map>
+ 				<entry key-ref = "coreJavaCourse" value-ref="Deven"/>
+ 				<entry key-ref = "advancedJavaCourse" value-ref="Akash"/>
+ 				</map> 
+ 				</property>
+ 				
+ 				</bean> -->
+ 				
+ 				<!-- <bean id="mikadoo1" autowire-candidate="false" class="com.spring.di.MikadoSolutions"
+ 				factory-method="getMikadoSolutions">
+ 				<property name="trainers">
+ 				<list>
+ 				<ref bean="Akash"/>
+ 				<ref bean="Deven"/>
+ 				</list> 
+ 				</property>
+ 				
+ 				<property name="courses">
+ 				<set>
+ 				<ref bean="coreJavaCourse"/>
+ 				<ref bean="advancedJavaCourse"/>
+ 				</set> 
+ 				</property>
+ 				
+ 				<property name="courseTrainers">
+ 				<map>
+ 				<entry key-ref = "coreJavaCourse" value-ref="Deven"/>
+ 				<entry key-ref = "advancedJavaCourse" value-ref="Akash"/>
+ 				</map> 
+ 				</property>
+ 				
+ 				</bean>
+ 				 -->
+ 				 
+ 				 <bean id="mikadoo1" primary="true" class="com.spring.di.MikadoSolutions">
+ 			<!-- factory-method="getMikadoSolutions"> -->
+ 				<property name="trainers">
+ 				<list>
+ 				<ref bean="Akash"/>
+ 				<ref bean="Deven"/>
+ 				</list> 
+ 				</property>
+ 				
+ 				<property name="courses">
+ 				<set>
+ 				<ref bean="coreJavaCourse"/>
+ 				<ref bean="advancedJavaCourse"/>
+ 				</set> 
+ 				</property>
+ 				
+ 				<property name="courseTrainers">
+ 				<map>
+ 				<entry key-ref = "coreJavaCourse" value-ref="Deven"/>
+ 				<entry key-ref = "advancedJavaCourse" value-ref="Akash"/>
+ 				</map> 
+ 				</property>
+ 				
+ 				</bean>
+ 				<bean id="trainingWorkshop" class="com.spring.di.TrainingWorkshop"
+ 				autowire="byType"/>
+ 				<!-- <bean id="trainingWorkshop" class="com.spring.di.TrainingWorkshop"
+ 				autowire="constructor"/>
+ 				 				 -->
+ 				<!-- <bean id="trainingWorkshop" class="com.spring.di.TrainingWorkshop"
+ 					p:trainingCompany-ref="mikadoo"/>
+ 				 -->
+ 				
+ 				</beans>

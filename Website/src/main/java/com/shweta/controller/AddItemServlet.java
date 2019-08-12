@@ -15,13 +15,15 @@ import com.shweta.model.Cart;
 import com.shweta.model.CartItem;
 import com.shweta.model.Item;
 
-@WebServlet("/rq")
+@WebServlet("/AddItem")
 public class AddItemServlet extends HttpServlet {
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
 		response.setContentType("text/html");
 		PrintWriter pw= response.getWriter();
 		
+		String Purchase = request.getParameter("Purchase");
+		if(Purchase!=null) {
 		ItemDAO dao=new ItemDAO();
 		HttpSession session=request.getSession();
 		Cart cart=(Cart)session.getAttribute("cart");
@@ -41,11 +43,19 @@ public class AddItemServlet extends HttpServlet {
 					cart.addCartItem(cartItem);
 				}
 			}
-			response.sendRedirect("Display.jsp");
+			 //request.getRequestDispatcher("/DisplayCart.jsp").forward(request, response);
+			 response.sendRedirect("DisplayCart.jsp");
 		}
 			catch(Exception e) {
 				pw.println(e);
 			}
+		}
+
+		String Logout = request.getParameter("Logout");
+		if(Logout!=null) {
+			request.getRequestDispatcher("/Logout").forward(request, response);
+
+		}
 				
 			}
 		}

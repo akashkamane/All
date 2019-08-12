@@ -2,7 +2,7 @@ package com.shweta.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Collection;
+import java.util.Vector;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,34 +12,38 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.shweta.dao.ItemDAO;
 
-@WebServlet("/FetchItemServlet")
+@WebServlet("/Fetch")
 public class FetchItemServlet extends HttpServlet {
 
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {   
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {   
 		  
 		response.setContentType("text/html");    
 		PrintWriter pw = response.getWriter();
+		
+		
+		
 		try {			
-			ItemDAO dao= new ItemDAO();
-			Collection<?> items =(Collection<?>) dao.getAllItems();
-			request.setAttribute("items", items);
 			
+			  ItemDAO dao= new ItemDAO(); 
+			  Vector items = dao.getAllItems();
+			  request.setAttribute("items", items);
+			 
+			//response.sendRedirect("Display.jsp");
 
-			 request.getRequestDispatcher("Display.jsp").forward(request, response);
+			 request.getRequestDispatcher("/Catlog.jsp").forward(request, response);
+		
+		
 		} catch (Exception e) {
 			
 			pw.println(e);
 		}
 		
+		String Logout = request.getParameter("Logout");
+		if(Logout!=null) {
+			request.getRequestDispatcher("/Logout").forward(request, response);
+
+		}
 		
-		/*
-		 * RequestDispatcher rd = request.getRequestDispatcher("rq");
-		 * rd.forward(request, response);
-		 * 			
-		 * HttpSession session = request.getSession();
-			session.setAttribute("id", id);
-			
-		 */
 		
-		  
-		}}  
+		}
+	}  
