@@ -30,7 +30,7 @@ response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
 
 Your total INR amount is <%= cart.getCartValue() %>
  
-<a href="/Website/index.html">HOME PAGE</a> 
+<a href="/Website/Index.jsp">HOME PAGE</a> 
 <form action="Logout">
  <input type="submit" value="logout" >
  

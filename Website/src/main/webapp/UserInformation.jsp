@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1" isELIgnored="false"%>
     <%@ page import="java.util.*, com.shweta.model.User" %>
 <!DOCTYPE html>
 <html>
@@ -13,25 +13,24 @@
 <tr>
 <%
 
-	
-
 
 User user= (User)session.getAttribute("UserInfo");
 
 	%>
 	
-	
-
-
 
 <tr><td>Name =<%= user.getName()  %></td>
 <tr><td>Sirname =<%= user.getSirname()  %></td>
 <tr><td>User Name =<%= user.getUserName()  %></td>
-<tr><td>Address =<%= user.getAddress()  %></td>
-
+<tr><td>Address =<%= user.getAddress() %></td>
+<tr><td> ${User} </td>
+ <tr><td> ${Sirname} </td>
+ <tr><td>  ${UserName} </td>
+ <tr><td>   ${UserInfo} </td>
 </tr>
 
 
+ 
 </table>
 
 

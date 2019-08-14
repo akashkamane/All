@@ -58,25 +58,6 @@ public class AddItemServlet extends HttpServlet {
 		}
 				
 			}
-		}
+}		
 		
 		
-		
-		
-		/*
-		 * HttpSession session=request.getSession(); String
-		 * str=(String)session.getAttribute("id"); PrintWriter out =
-		 * response.getWriter(); out.print("Time is "+str);
-		 * 
-		 * response.sendRedirect("Display.jsp");
-		 */
-		
-		
-		 
-		/*
-		 * HttpSession session=request.getSession(); session.getCreationTime();
-		 * 
-		 * PrintWriter out = response.getWriter(); out.print("Time is "+session);
-		 */
-		
-

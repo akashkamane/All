@@ -65,6 +65,7 @@ public class DecisionServlet extends HttpServlet {
 		if(Registration!=null) {
 			HttpSession session=request.getSession();
 			String name=(String) session.getAttribute("User");
+			session.getAttribute("Sirname");
 			ItemDAO dao=new ItemDAO();
 			try {
 				User usrinfo = dao.getUser(name);
