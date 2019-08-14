@@ -27,9 +27,7 @@ public class LoginControl extends HttpServlet {
 		ItemDAO dao=new ItemDAO();
 		  String name=request.getParameter("Name");
 		  String password=request.getParameter("Pass");
-	  
-		
-		String Login = request.getParameter("Login");
+	          String Login = request.getParameter("Login");
 		if(Login!=null) {
 			
 			 
