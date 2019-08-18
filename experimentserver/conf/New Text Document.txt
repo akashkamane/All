@@ -1,0 +1,9 @@
+NameVirtualHost *:80
+
+<VirtualHost *:80>
+ServerName WebSite.com
+ServerAlias www.sites.com
+DocumentRoot "C:\Users\AKASH\eclipse-workspace\Website\src\main\skyapps\Index.jsp"
+CustomLog logs/Webiste.com.access.log combined
+ErrorLog logs/sites.com.error.log
+</VirtualHost>
