@@ -1,0 +1,16 @@
+127.0.0.1 - - [20/Aug/2019:04:26:40 +0530] "GET / HTTP/1.1" 404 994
+0:0:0:0:0:0:0:1 - - [20/Aug/2019:04:26:42 +0530] "GET /Website/Index.jsp HTTP/1.1" 200 364
+0:0:0:0:0:0:0:1 - - [20/Aug/2019:04:26:42 +0530] "GET /favicon.ico HTTP/1.1" 404 1016
+0:0:0:0:0:0:0:1 - - [20/Aug/2019:04:27:04 +0530] "GET /Website/WebLogin?Name=Shweta&Pass=1997&Login=Login HTTP/1.1" 404 1026
+0:0:0:0:0:0:0:1 - - [20/Aug/2019:04:28:17 +0530] "GET /Website/ HTTP/1.1" 200 364
+0:0:0:0:0:0:0:1 - - [20/Aug/2019:04:28:26 +0530] "GET /Website/WebLogin?Name=Shweta&Pass=1997&Login=Login HTTP/1.1" 404 1026
+127.0.0.1 - - [20/Aug/2019:04:29:33 +0530] "GET / HTTP/1.1" 404 994
+0:0:0:0:0:0:0:1 - - [20/Aug/2019:04:30:26 +0530] "GET /Website/ HTTP/1.1" 200 364
+0:0:0:0:0:0:0:1 - - [20/Aug/2019:04:30:36 +0530] "GET /Website/WebLogin?Name=Shweta&Pass=1997&Login=Login HTTP/1.1" 404 1026
+127.0.0.1 - - [20/Aug/2019:04:35:00 +0530] "GET / HTTP/1.1" 404 994
+127.0.0.1 - - [20/Aug/2019:04:35:00 +0530] "GET / HTTP/1.1" 404 994
+0:0:0:0:0:0:0:1 - - [20/Aug/2019:04:35:14 +0530] "GET /Website/ HTTP/1.1" 200 364
+0:0:0:0:0:0:0:1 - - [20/Aug/2019:04:35:17 +0530] "GET /Website/WebLogin?Name=&Pass=&Login=Login HTTP/1.1" 404 1026
+0:0:0:0:0:0:0:1 - - [20/Aug/2019:04:35:19 +0530] "GET /Website/WebLogin?Name=&Pass=&Reg=Registration HTTP/1.1" 404 1026
+0:0:0:0:0:0:0:1 - - [20/Aug/2019:04:35:24 +0530] "GET /Website/WebLogin?Name=&Pass=&Login=Login HTTP/1.1" 404 1026
+0:0:0:0:0:0:0:1 - - [20/Aug/2019:04:35:28 +0530] "GET /Website/WebLogin?Name=&Pass=&Reg=Registration HTTP/1.1" 404 1026
