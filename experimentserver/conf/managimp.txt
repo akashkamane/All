@@ -1,0 +1,190 @@
+package com.mikadosolutions.training.hibernate;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.AnnotationConfiguration;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.hibernate.HibernateException;
+import org.hibernate.cfg.Configuration;
+import java.io.Serializable;
+import java.util.List;
+import java.util.Iterator;
+public class ManageEmployee
+{
+	public static SessionFactory sessionFactory;
+
+	public ManageEmployee()
+	{
+	}
+	public static void main(String args[])
+	{
+		
+		try{
+		sessionFactory =new Configuration().configure().buildSessionFactory();
+		}
+		catch(Exception e)
+		{
+			throw new ExceptionInInitializerError(e);
+		}
+		ManageEmployee me = new ManageEmployee();
+		Integer id1 = me.addEmployee(new Employee("Deven",10000));
+		Integer id2 = me.addEmployee(new Employee("Deven",100));
+		//Employee e = me.getEmployee(id1);
+		//System.out.println(e);
+		//me.updateEmployee(id1);
+		//Employee e2 = me.loadEmployee(id1);
+		//System.out.println(e2);
+		//me.getEmployees();
+		//me.deleteEmployee(id1);
+	}
+	public Integer addEmployee(Employee e)
+	{
+		Session session = sessionFactory.openSession();
+		Transaction tx=null;
+		Integer id=null;
+			try{
+			tx = session.beginTransaction();
+			Serializable s=session.save(e);
+			id=(Integer)s;
+			tx.commit();
+		}
+		catch(HibernateException e1)
+		{
+			if(tx!=null)
+			{
+				tx.rollback();
+				System.out.println(e1);
+			}
+		}
+		finally
+		{
+			session.close();
+		}
+		return id;
+	}
+	public Employee getEmployee(Integer id)
+	{
+		Session session = sessionFactory.openSession();
+		Transaction tx=null;
+		Employee e=null;
+		try{
+			tx=session.beginTransaction();
+		e = (Employee)session.get(Employee.class,id);
+		}
+		catch(Exception e1)
+		{
+			if(tx!=null)
+				tx.rollback();
+			else
+				System.out.println(e1);
+		}
+		finally{
+			session.close();
+		}
+		return e;
+	}
+	public void updateEmployee(Integer id)
+	{
+		Session session = sessionFactory.openSession();
+		Transaction tx=null;
+		Employee e=null;
+		try
+		{
+			tx = session.beginTransaction();
+			e =(Employee)session.get(Employee.class,id);
+			e.setSalary(200000);
+			session.update(e);
+			tx.commit();
+			System.out.println(e);
+		}
+		catch(HibernateException e1)
+		{
+			if(tx!=null)
+			{
+				tx.rollback();
+				System.out.println(e1);
+			}
+		}
+		finally
+		{
+			session.close();
+		}
+		
+    }
+	public Employee loadEmployee(Integer id)
+	{
+		Session session = sessionFactory.openSession();
+		Transaction tx=null;
+		Employee e=null;
+		try{
+			tx=session.beginTransaction();
+			e=(Employee)session.load(Employee.class,id);
+			tx.commit();
+			System.out.println(e);
+		}
+		catch(HibernateException e1)
+		{
+			if(tx!=null)
+			{
+				tx.rollback();
+				System.out.println(e1);
+			}
+		}
+		finally
+		{
+			session.close();
+		}
+		return e;
+	}
+public void getEmployees()
+{
+	Session session  = sessionFactory.openSession();
+	Transaction tx = null;
+	try{
+		tx = session.beginTransaction();
+	List employees = session.createQuery("FROM Employee").list();
+	Iterator it = employees.iterator();
+	while(it.hasNext())
+		{
+		Employee e =(Employee)it.next();
+		System.out.println(e);
+		}
+	tx.commit();
+	}
+	catch(HibernateException e)
+	{
+		if(tx!=null)
+			{
+				tx.rollback();
+				System.out.println(e);
+			}
+		}
+		finally
+		{
+			session.close();
+		}
+}
+public void deleteEmployee(Integer id)
+	{
+	Session session  = sessionFactory.openSession();
+	Transaction tx = null;
+	//Employee e = new Employee("seven",id);
+	try{
+		tx = session.beginTransaction();
+		Employee e =(Employee)session.get(Employee.class,id);
+		session.delete(e);
+		tx.commit();
+	}
+	catch(HibernateException e1)
+	{
+		if(tx!=null)
+			{
+				tx.rollback();
+				System.out.println(e1);
+			}
+		}
+		finally
+		{
+			session.close();
+		}
+	}
+}
